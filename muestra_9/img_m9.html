@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anexo Fotográfico</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      color: #00695c;
+    }
+    h2 {
+      color: #004d40;
+      border-bottom: 2px solid #004d40;
+      padding-bottom: 5px;
+    }
+    .anexo {
+      background-color: #ffffff;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 25px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .galeria {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-top: 12px;
+    }
+    .foto-placeholder {
+      border: 2px dashed #80cbc4;
+      background: #e0f2f1;
+      color: #004d40;
+      padding: 8px;
+      text-align: center;
+      border-radius: 8px;
+      margin-top: 0;
+      min-height: 180px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    .foto-placeholder img {
+      width: 100%;
+      height: clamp(180px, 28vw, 280px);
+      object-fit: cover;
+      border-radius: 8px;
+      display: block;
+      margin: 0 auto 10px;
+      cursor: zoom-in;
+    }
+    .foto-placeholder p {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 600;
+      color: #004d40;
+    }
+    .pendiente {
+      display: none;
+      font-weight: bold;
+      padding: 10px;
+    }
+    .volver {
+      display: inline-block;
+      margin-bottom: 20px;
+      padding: 10px 14px;
+      background-color: #004d40;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+    .volver:hover {
+      background-color: #00695c;
+    }
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.9);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 1000;
+    }
+    .lightbox.open {
+      display: flex;
+    }
+    .lightbox img {
+      max-width: min(100%, 1100px);
+      max-height: 88vh;
+      width: auto;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    }
+    .lightbox-cerrar {
+      position: absolute;
+      top: 14px;
+      right: 18px;
+      background: #ffffff;
+      border: none;
+      border-radius: 999px;
+      width: 38px;
+      height: 38px;
+      font-size: 24px;
+      line-height: 1;
+      cursor: pointer;
+    }
+    @media (max-width: 640px) {
+      body {
+        margin: 16px;
+      }
+      .anexo {
+        padding: 14px;
+      }
+      .galeria {
+        grid-template-columns: 1fr;
+      }
+      .foto-placeholder img {
+        height: 230px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="volver" href="m8.html">← Volver al informe</a>
+  <a class="volver" href="../index.html" style="margin-left: 10px;">← Volver al Índice</a>
+  <h1>Anexo Fotográfico</h1>
+
+  <section class="anexo" id="muestra-9">
+    <h2>Muestra #9 - Arctic Queen</h2>
+    <p>Evidencia fotográfica de la Muestra #9.</p>
+    <div class="galeria">
+      <div class="foto-placeholder"><img src="img_m9/info_caja.jpeg" alt="Información sobre la caja"><p>Información sobre la caja</p></div>
+      <div class="foto-placeholder"><img src="img_m9/empaque.jpeg" alt="Empaque de esquejes"><p>Empaque de esquejes</p></div>
+      <div class="foto-placeholder"><img src="img_m9/esqueje.jpeg" alt="Estado del esqueje"><p>Estado del esqueje</p></div>
+      <div class="foto-placeholder"><img src="img_m9/muestra_9.jpeg" alt="Muestra"><p>Muestra</p></div>
+      <div class="foto-placeholder"><img src="img_m9/deshidratación.jpeg" alt="Deshidratación"><p>Deshidratación en el extremo no cubierto</p></div>
+
+    </div>
+  </section>
+
+
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-cerrar" id="lightbox-cerrar" aria-label="Cerrar imagen">×</button>
+    <img id="lightbox-imagen" src="" alt="Vista ampliada">
+  </div>
+
+  <script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImagen = document.getElementById('lightbox-imagen');
+    const cerrar = document.getElementById('lightbox-cerrar');
+    const miniaturas = document.querySelectorAll('.foto-placeholder img');
+
+    miniaturas.forEach((img) => {
+      img.addEventListener('click', () => {
+        lightboxImagen.src = img.src;
+        lightboxImagen.alt = img.alt;
+        lightbox.classList.add('open');
+        lightbox.setAttribute('aria-hidden', 'false');
+      });
+    });
+
+    function cerrarLightbox() {
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      lightboxImagen.src = '';
+    }
+
+    cerrar.addEventListener('click', cerrarLightbox);
+    lightbox.addEventListener('click', (event) => {
+      if (event.target === lightbox) {
+        cerrarLightbox();
+      }
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && lightbox.classList.contains('open')) {
+        cerrarLightbox();
+      }
+    });
+  </script>
+</body>
+</html>
