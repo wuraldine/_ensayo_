@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Índice de Muestras - Informe de Empaque</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      padding: 40px 20px;
+    }
+    .contenedor {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    h1 {
+      text-align: center;
+      color: #00695c;
+      margin-bottom: 10px;
+    }
+    .subtitulo {
+      text-align: center;
+      color: #666;
+      margin-bottom: 40px;
+      font-size: 16px;
+    }
+    .tabla-muestras {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th {
+      background-color: #004d40;
+      color: #fff;
+      padding: 16px;
+      text-align: left;
+      font-weight: bold;
+    }
+    td {
+      padding: 14px 16px;
+      border-bottom: 1px solid #eee;
+    }
+    tr:hover {
+      background-color: #f5f5f5;
+    }
+    .numero {
+      background-color: #e0f2f1;
+      color: #004d40;
+      font-weight: bold;
+      text-align: center;
+      width: 60px;
+      border-radius: 6px;
+    }
+    .variedad {
+      font-weight: 600;
+      color: #00695c;
+    }
+    .acciones {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .boton {
+      display: inline-block;
+      padding: 8px 14px;
+      background-color: #004d40;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+      border: none;
+      cursor: pointer;
+    }
+    .boton:hover {
+      background-color: #00695c;
+    }
+    .boton-secundario {
+      background-color: #80cbc4;
+    }
+    .boton-secundario:hover {
+      background-color: #4db8ad;
+    }
+    .instrucciones {
+      background-color: #e0f2f1;
+      border-left: 4px solid #004d40;
+      padding: 16px;
+      margin-top: 40px;
+      border-radius: 6px;
+    }
+    .instrucciones h3 {
+      color: #004d40;
+      margin-bottom: 8px;
+    }
+    .instrucciones p {
+      color: #333;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    @media (max-width: 768px) {
+      body {
+        padding: 20px;
+      }
+      .contenedor {
+        max-width: 100%;
+      }
+      table {
+        font-size: 14px;
+      }
+      th, td {
+        padding: 10px;
+      }
+      .acciones {
+        flex-direction: column;
+      }
+      .boton {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+    <h1>Índice de Muestras</h1>
+    <p class="subtitulo">Informe de Cosecha de Esquejes a Granel</p>
+
+    <div class="tabla-muestras">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Variedad</th>
+            <th>Bloque</th>
+            <th>Cantidad</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="numero">1</td>
+            <td class="variedad">Valentino</td>
+            <td>01</td>
+            <td>1600 esquejes</td>
+            <td class="acciones">
+              <a class="boton" href="muestra_1/m1.html">Ver Informe</a>
+              <a class="boton boton-secundario" href="muestra_1/img_m1.html#muestra-1">Fotos</a>
+            </td>
+          </tr>
+          <tr>
+            <td class="numero">2</td>
+            <td class="variedad">Atlantis Orange</td>
+            <td>01</td>
+            <td>1600 esquejes</td>
+            <td class="acciones">
+              <a class="boton" href="muestra_2/m2.html">Ver Informe</a>
+              <a class="boton boton-secundario" href="muestra_2/img_m2.html#muestra-2">Fotos</a>
+            </td>
+          </tr>
+          <tr>
+            <td class="numero">3</td>
+            <td class="variedad">Copper</td>
+            <td>08</td>
+            <td>1600 esquejes</td>
+            <td class="acciones">
+              <a class="boton" href="muestra_3/m3.html">Ver Informe</a>
+              <a class="boton boton-secundario" href="muestra_3/img_m3.html#muestra-3">Fotos</a>
+            </td>
+           </tr>
+           <tr>
+            <td class="numero">4</td>
+            <td class="variedad">Copper</td>
+            <td>08</td>
+            <td>1600 esquejes</td>
+            <td class="acciones">
+              <a class="boton" href="muestra_4/m4.html">Ver Informe</a>
+              <a class="boton boton-secundario" href="muestra_4/img_m4.html#muestra-4">Fotos</a>
+            </td>
+           </tr>
+            <tr>
+            <td class="numero">5</td>
+            <td class="variedad">Copper</td>
+            <td>08</td>
+            <td>1600 esquejes</td>
+            <td class="acciones">
+              <a class="boton" href="muestra_5/m5.html">Ver Informe</a>
+              <a class="boton boton-secundario" href="muestra_5/img_m5.html#muestra-5">Fotos</a>
+            </td>
+           </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+    <div class="instrucciones">
+      <h3>¿Cómo agregar más muestras?</h3>
+      <p>
+        Para agregar una nueva muestra, agrega una nueva fila en la tabla con los datos correspondientes. 
+        Crea una carpeta <strong>muestra_X</strong> siguiendo el mismo patrón de <strong>m1</strong>, 
+        y ajusta los enlaces en la columna "Acciones" para que apunten a los archivos correctos.
+      </p>
+    </div>
+  </div>
+</body>
+</html>
